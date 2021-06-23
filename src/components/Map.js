@@ -4,9 +4,9 @@ import GoogleMapReact from 'google-map-react';
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json"
 const MAP_KEY = process.env.REACT_APP_MAP_KEY
-const img = <img src = "../iss.png" alt = "iss" height = "30px"/>
+const img = <img src = "./iss.png" alt = "iss" height = "30px"/>
 
-const SpaceStation = ({ IMG }) => <div>{IMG}</div>
+const SpaceStation = ({ img }) => <div>{img}</div>
 
 class Map extends React.Component{
     state = {
@@ -19,7 +19,7 @@ class Map extends React.Component{
 
     componentDidMount(){
         this.getCoordinates()
-        this.interval = setInterval(this.getCoordinates, 3000)
+        this.interval = setInterval(this.getCoordinates, 5000)
     }
     
     componentWillUnmount(){
@@ -38,8 +38,6 @@ class Map extends React.Component{
     }
     
     render(){
-        // console.log("LAT:", this.state.center.lat)
-        // console.log("LNG:", this.state.center.lng)
         return(
             <div>
                 <p>Latitude: {this.state.center.lat}</p>
